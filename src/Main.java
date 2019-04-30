@@ -2,24 +2,19 @@
 
 public class Main {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         
         TuringMachine TM = new TuringMachine();
         
-        Program replaceZeroes = new Program();
-        replaceZeroes.add(new Instruction(0,true,'0','1',0));
-        replaceZeroes.add(new Instruction(0,true,'1','1',0));
-        replaceZeroes.add(new Instruction(0,true,'#','#',1));
-        replaceZeroes.add(new Instruction(1,false,'1','1',1));
-        replaceZeroes.add(new Instruction(1,false,'0','0',1));
-        replaceZeroes.add(new Instruction(1,false,'#','#',-1));
+        Program replaceZeroes = new Program("ReplaceZeroes.tm");
         
-        System.out.println(TM);
+        
         TM.setInput("00101001");        
         System.out.println(TM);
         
         while (!TM.isDone()) {
-            System.out.println(TM.step(replaceZeroes));
+            String state = TM.step(replaceZeroes);
+            System.out.println(state);
         }
         
         System.out.println(TM);
