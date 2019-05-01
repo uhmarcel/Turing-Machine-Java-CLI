@@ -55,7 +55,7 @@ public class Program {
         Pattern p = Pattern.compile(pattern);
         
         while (scanner.hasNextLine()) {
-            String currentLine = scanner.nextLine().trim();
+            String currentLine = scanner.nextLine().replace(" ","");
             Matcher m = p.matcher(currentLine);
             if (m.matches()) {
                 int s = Integer.parseInt(m.group(1));

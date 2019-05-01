@@ -34,20 +34,15 @@ public class TuringMachine {
         char[] c = input.toCharArray();
         for (int i = 0; i < input.length(); i++)
             tape.add(position + i + 1, c[i]);
-    }
+    }    
     
-    public String toString() {
-        String output = new String();
-        for (int i = 0; i < tape.size(); i++) {
-            if (i == position) 
-                output += "[" + tape.get(i) + "]";
-            else
-                output += tape.get(i);
-        } 
-        return output;
+    public boolean isDone() {
+        return state == Instruction.FINAL_STATE;
     }
 
     public String step(Program p) {
+        if (position == tape.size() - 1)
+            tape.add(EMPTY_CHAR);
         position += p.getDirection(state) ? 1 : -1;
         
         char currentToken = tape.get(position);
@@ -58,9 +53,16 @@ public class TuringMachine {
         
         return this.toString();
     }
-    
-    public boolean isDone() {
-        return state == Instruction.FINAL_STATE;
+        
+    public String toString() {
+        String output = new String();
+        for (int i = 0; i < tape.size(); i++) {
+            if (i == position) 
+                output += "[" + tape.get(i) + "]";
+            else
+                output += tape.get(i);
+        } 
+        return output + "  s = " + state;
     }
     
     

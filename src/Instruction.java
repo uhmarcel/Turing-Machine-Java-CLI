@@ -20,5 +20,12 @@ public class Instruction {
         this.nextState = n;
     }
     
+    public String toString() {
+        String out = new String();
+        out += "q" + state + "]";
+        out += direction ? "r" : "l";
+        out += "(" + target + "/" + replace + ",q" + nextState + ")";
+        return out;
+    }
     
 }

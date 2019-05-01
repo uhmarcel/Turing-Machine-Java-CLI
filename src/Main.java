@@ -8,14 +8,13 @@ public class Main {
         
         Program replaceZeroes = new Program("ReplaceZeroes.tm");
         Program firstChar = new Program("FirstChar.tm");
-        
-        System.out.println(firstChar);
+        Program firstAndLast = new Program("FirstAndLast.tm");
         
         TM.setInput("00101001");        
         System.out.println(TM);
         
         while (!TM.isDone()) {
-            String state = TM.step(firstChar);
+            String state = TM.step(firstAndLast);
             System.out.println(state);
         }
         

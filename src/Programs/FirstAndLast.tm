@@ -9,4 +9,17 @@ q3]r (1/1, q3)   # Traverse till end of tape
 q3]r (0/0, q3)
 q3]r (#/#, q4)
 q4]r (#/0, q5)   # Add zero to end of tape
-q5]l (#/#, q-1)  
+q5]l (#/#, q6)   # Checkpoint at middle blank
+q6]l (1/1, q7)
+q6]l (0/0, q10)
+q7]r (#/#, q8)
+q8]r (1/1, q9)
+q8]r (0/0, q9)
+q9]r (#/1, q13)
+q10]r (#/#, q11)
+q11]r (1/1, q12)
+q12]r (#/1, q13)
+q13]l (1/1, q13)
+q13]l (0/0, q13)
+q13]l (#/#, q-1)
+ 
