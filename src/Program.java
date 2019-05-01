@@ -46,17 +46,31 @@ public class Program {
     }
     
     public Pair getInstruction(int state, char target) {
-        return instrMap[state].get(target);
+        Pair instruction = instrMap[state].get(target);
+        //Implicit instruction
+        if (instruction == null) { 
+            instruction = new Pair(target, state); 
+        }
+        return instruction;
     }
     
     public void load(String filename) throws Exception {
         Scanner scanner = new Scanner(new File(INPUT_PATH + filename));
-        String pattern = "^q([0-9]+)]([rl])\\((.)\\/(.),q(-?[0-9]+)\\)(#.*)?$";
-        Pattern p = Pattern.compile(pattern);
+        
+        String fullSyntax = "^q([0-9]+)]([rl])\\((.)\\/(.),q(-?[0-9]+)\\)(#.*)?$";
+        String fastSyntax = "";
+        String shortcut = "\\((.),q(-?[0-9]+)\\)";
+        
+        Pattern pFull = Pattern.compile(fullSyntax);
+        
+        Pattern pFast = Pattern.compile(fastSyntax);
         
         while (scanner.hasNextLine()) {
             String currentLine = scanner.nextLine().replace(" ","");
-            Matcher m = p.matcher(currentLine);
+            currentLine = currentLine.replaceAll(shortcut, "($1/$1,q$2)");
+            Matcher m = pFull.matcher(currentLine);
+            System.out.println(currentLine);
+            
             if (m.matches()) {
                 int s = Integer.parseInt(m.group(1));
                 boolean d  = m.group(2).equals("r") ? RIGHT : LEFT;
@@ -64,7 +78,9 @@ public class Program {
                 char r = m.group(4).charAt(0);
                 int n = Integer.parseInt(m.group(5));
                 this.add(new Instruction(s,d,t,r,n));
-            }         
+            }
+            
+            
         }
     } 
     

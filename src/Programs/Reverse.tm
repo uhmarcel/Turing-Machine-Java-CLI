@@ -10,3 +10,4 @@ q3]r (0/0, q3)
 q3]r (#/#, q4)
 q4]r (#/0, q5)   # Add zero to end of tape
 q5]l (#/#, q-1)  
+q985] (1, q2)
