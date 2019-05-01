@@ -100,7 +100,6 @@ public class Program {
                 }
             }
         }
-        System.out.println(this.toString());
     }
     
     public String toString() {
