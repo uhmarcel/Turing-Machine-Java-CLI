@@ -40,10 +40,18 @@ public class Program {
             this.add(c);
         }
     }
+
+    public boolean getDirection(int state) {
+        return direction[state];
+    }
+    
+    public Pair getInstruction(int state, char target) {
+        return instrMap[state].get(target);
+    }
     
     public void load(String filename) throws Exception {
         Scanner scanner = new Scanner(new File(INPUT_PATH + filename));
-        String pattern = "^q([0-9]+)]([rl])\\((.)\\/(.),q(-?[0-9]+)\\)";
+        String pattern = "^q([0-9]+)]([rl])\\((.)\\/(.),q(-?[0-9]+)\\)(#.*)?$";
         Pattern p = Pattern.compile(pattern);
         
         while (scanner.hasNextLine()) {
@@ -58,14 +66,6 @@ public class Program {
                 this.add(new Instruction(s,d,t,r,n));
             }         
         }
-    }
-    
-    public boolean getDirection(int state) {
-        return direction[state];
-    }
-    
-    public Pair getInstruction(int state, char target) {
-        return instrMap[state].get(target);
-    }
+    } 
     
 }

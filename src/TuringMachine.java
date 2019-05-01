@@ -63,6 +63,7 @@ public class TuringMachine {
         return state == Instruction.FINAL_STATE;
     }
     
+    
 //    public void compute(Program p) {
 //        int currentState = 0;
 //        char currentToken;

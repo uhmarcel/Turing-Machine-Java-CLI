@@ -7,13 +7,15 @@ public class Main {
         TuringMachine TM = new TuringMachine();
         
         Program replaceZeroes = new Program("ReplaceZeroes.tm");
+        Program firstChar = new Program("FirstChar.tm");
         
+        System.out.println(firstChar);
         
         TM.setInput("00101001");        
         System.out.println(TM);
         
         while (!TM.isDone()) {
-            String state = TM.step(replaceZeroes);
+            String state = TM.step(firstChar);
             System.out.println(state);
         }
         
