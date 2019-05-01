@@ -10,14 +10,15 @@ public class Main {
         Program firstChar = new Program("FirstChar.tm");
         Program firstAndLast = new Program("FirstAndLast.tm");
         Program reverse = new Program("Reverse.tm");
+        Program copyPaste = new Program("CopyPaste.tm");
         
-        System.out.println(reverse);
+        System.out.println(copyPaste);
         
         TM.setInput("00101001");        
         System.out.println(TM);
         
         while (!TM.isDone()) {
-            String state = TM.step(reverse);
+            String state = TM.step(copyPaste);
             System.out.println(state);
         }
         
