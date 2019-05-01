@@ -1,3 +1,6 @@
+# FirstChar TM program
+# For a given input string on {0,1}* returns the first character.
+
 q0]r (#/#, q-1)  # If nothing on input, return
 q0]r (1/1, q1)   # Check whether 1, 0 or #
 q0]r (0/0, q3)
