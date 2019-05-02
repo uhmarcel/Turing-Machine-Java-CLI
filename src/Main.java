@@ -11,14 +11,16 @@ public class Main {
         Program firstAndLast = new Program("FirstAndLast.tm");
         Program reverse = new Program("Reverse.tm");
         Program copyPaste = new Program("CopyPaste.tm");
+        Program add = new Program("Add.tm");
+        Program multiply = new Program("Multiply.tm");
         
-        System.out.println(copyPaste);
+        System.out.println(multiply);
         
-        TM.setInput("00101001");        
+        TM.setInput("1", "");        
         System.out.println(TM);
         
         while (!TM.isDone()) {
-            String state = TM.step(copyPaste);
+            String state = TM.step(multiply);
             System.out.println(state);
         }
         

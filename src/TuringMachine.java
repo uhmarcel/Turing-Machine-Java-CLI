@@ -30,10 +30,18 @@ public class TuringMachine {
         this.state = 0;
     }
     
-    public void setInput(String input) {
-        char[] c = input.toCharArray();
-        for (int i = 0; i < input.length(); i++)
-            tape.add(position + i + 1, c[i]);
+    public void setInput(String... input) {
+        int temp = position;
+        for (String s : input) {
+            char[] c = s.toCharArray();   
+            int i = 0;
+            for (; i < c.length; i++)
+                tape.add(position + i + 1, c[i]);
+            position += i + 1;
+            tape.add(position + 1, EMPTY_CHAR);
+        }
+        tape.remove(tape.size()-1);
+        position = temp;
     }    
     
     public boolean isDone() {
