@@ -73,6 +73,19 @@ public class TuringMachine {
         return output + "  s = " + state;
     }
     
+    public String getOutput() {
+        String output = new String();
+        int index = 0;
+        while (index != tape.size() - 1) {
+            char current = tape.get(index);
+            if (current != '#') {
+                output += current; 
+            }
+            index++;
+        }
+        return output;
+    }
+    
     
 //    public void compute(Program p) {
 //        int currentState = 0;

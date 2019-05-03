@@ -13,7 +13,7 @@ import javafx.util.Pair;
 public class Program {
     
     public static final int PROGRAM_SIZE = 256;
-    public static final String INPUT_PATH = "src/Programs/";
+    public static final String INPUT_PATH = "./";
     public static final boolean LEFT = false;
     public static final boolean RIGHT = true;
 
